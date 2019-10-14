@@ -63,14 +63,8 @@ namespace BinarySearchTree
         public bool Search(int target)
         {
             bool success = RecursiveSearch(target, root);
-            if (success == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return success;
+           
         }
 
         public bool RecursiveSearch(int target, Node middle)
@@ -96,7 +90,7 @@ namespace BinarySearchTree
                 {
                     return false;
                 }
-               else
+                else
                 {
                     return RecursiveSearch(target, middle.rightChild);
                 }           

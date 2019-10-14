@@ -27,6 +27,10 @@ namespace BinarySearchTree
             searchTree.AddToTree(3);
 
             Console.WriteLine(searchTree.Search(4));
+            Console.WriteLine(searchTree.Search(123));
+            Console.WriteLine(searchTree.Search(5));
+            Console.WriteLine(searchTree.Search(93));
+            Console.WriteLine(searchTree.Search(99));
 
 
             Console.ReadLine();
