@@ -24,6 +24,9 @@ namespace BinarySearchTree
             searchTree.AddToTree(93);
             searchTree.AddToTree(105);
             searchTree.AddToTree(123);
+            searchTree.AddToTree(3);
+
+            Console.WriteLine(searchTree.Search(4));
 
 
             Console.ReadLine();

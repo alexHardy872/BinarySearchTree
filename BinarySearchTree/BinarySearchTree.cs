@@ -30,43 +30,11 @@ namespace BinarySearchTree
             {
                 Node temp = root;
                 RecursiveAdd(node, temp);
-               
-               /*
-
-                while (node.data <= temp.data)
-                {
-                    while (temp.leftChild != null)
-                    {
-                        temp = temp.leftChild;
-
-                    }
-                    
-                    temp.leftChild = node;
-                    break;
-
-                }
-
-                while (node.data > temp.data)
-                {
-                    while (temp.rightChild != null)
-                    {
-                        temp = temp.rightChild;
-
-                    }
-
-                    temp.rightChild = node;
-                    break;
-
-                } */
-
             }
-   
-  
         }
 
         public void RecursiveAdd(Node node, Node temp)
-        {
-           
+        {       
             if (node.data <= temp.data)
             {
                 if (temp.leftChild != null)
@@ -76,53 +44,63 @@ namespace BinarySearchTree
                 else
                 {
                     temp.leftChild = node;
-                }
-               
+                }     
             }
             else
             {
                 if (temp.rightChild != null)
                 {
                     RecursiveAdd(node, temp.rightChild);
-
                 }
                 else
                 {
                     temp.rightChild = node;
-                }
-               
-
+                }           
             }
         }
        
 
-        public void Search(int target)
+        public bool Search(int target)
         {
-            Recursive(target, root);
-            // recursive
-            // check if initial key is equal
-            // is greater or less than root?
-            // if not move other way
-            // return the node?
-
+            bool success = RecursiveSearch(target, root);
+            if (success == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public Node Recursive(int target, Node middle)
+        public bool RecursiveSearch(int target, Node middle)
         {
             if (target == middle.data)
             {
-                return middle;
+                return true;
             }
             else if ( target < middle.data)
             {
-                return Recursive(target, middle.leftChild);
+                if (middle.leftChild == null)
+                {
+                    return false;
+                }
+                else 
+                {
+                    return RecursiveSearch(target, middle.leftChild);
+                }            
             }
             else
-            { 
-                return Recursive(target, middle.rightChild);
+            {
+                if (middle.rightChild == null)
+                {
+                    return false;
+                }
+               else
+                {
+                    return RecursiveSearch(target, middle.rightChild);
+                }           
             }
-           
-
         }
 
 
